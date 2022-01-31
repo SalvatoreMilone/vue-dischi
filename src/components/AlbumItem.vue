@@ -28,9 +28,23 @@ export default {
   justify-content: flex-start;
   align-items: center;
   width: 200px;
-  height: 300px;
+  height: 350px;
   padding: 20px;
   background: #2e3a46;
+  text-align: center;
+
+  :nth-child(2){
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  :nth-child(3){
+    color: #999;
+  }
+  :nth-child(4){
+    color: #999;
+  }
 }
 
 img{
