@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <select name="Genere" id=""
+  <div class="wrapper">
+    <div>Generi:</div>
+    <select name="Genere" id="select"
     v-model="SelectedGenere"
     @change="$emit('filtra', SelectedGenere)">
         <option value="">All</option>
@@ -33,15 +34,20 @@ export default {
 }
 </script>
 
-<style leng="scss" scoped>
+<style lang="scss" scoped>
+    .wrapper{
+        position: absolute;
+        top: 15px;  
+        left: 150px;
+        display: flex;
+        align-items: center;
+    }
     select{
         border: 2px solid #18d860;
         border-radius: 5px;
         background-color: #2e3a46;
         padding: 5px;
         color: white;
-        position: absolute;
-        top: 15px;
-        left: 100px;
+        margin-left: 10px;
     }
 </style>
