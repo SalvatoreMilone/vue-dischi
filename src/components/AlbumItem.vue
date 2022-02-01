@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="container">
-      <img :src="info.poster" alt="alt" width="200px">
+      <img :src="info.poster" alt="alt" height="200px">
       <div>{{info.title}}</div>
       <div>{{info.author}}</div>
       <div>{{info.year}}</div>
