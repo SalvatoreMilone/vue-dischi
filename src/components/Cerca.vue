@@ -28,7 +28,7 @@ export default {
 
     data(){
         return{
-            SelectedGenere:""
+            SelectedGenere:"",
         }
     }
 }
@@ -48,5 +48,7 @@ export default {
         padding: 5px;
         color: white;
         margin-left: 10px;
+        width: 100px;
     }
+    
 </style>

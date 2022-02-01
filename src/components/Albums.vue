@@ -36,7 +36,7 @@ export default {
       Cerca
     },
     created(){
-      this.getPersonaggi();
+      this.getAlbums();
     },
     computed: {
       albumFiltrati(){
@@ -49,7 +49,7 @@ export default {
       }
     },
     methods: {
-      getPersonaggi(){
+      getAlbums(){
         axios
           .get(this.apiURL)
           .then( (risposta) => {
@@ -65,7 +65,7 @@ export default {
       filtraalbum(album){
         this.nuovoinput = album
         console.log(this.nuovoinput)
-      }
+      },
     },
   props: {
     
