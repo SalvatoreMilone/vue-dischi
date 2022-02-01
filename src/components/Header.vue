@@ -8,11 +8,20 @@
 
 <script>
 
+
 export default {
   name: 'Header',
   props: {
   },
+  data(){
+    return{
+    }
+  },
   components: {
+
+  },
+  methods: {
+
   }
 }
 </script>

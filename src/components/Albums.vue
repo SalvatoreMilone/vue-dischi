@@ -1,11 +1,14 @@
 <template>
-  <div class="wrapper">
-    <div class="container" v-if="!loading">
-        <AlbumItem
-        v-for="(elemento, index) in albumArray"
-        :key="index"
-        :info="elemento"
-        />
+  <div>
+    <div class="wrapper" v-if="!loading">
+      <Cerca @filtra="filtraalbum"/>
+      <div class="container">
+          <AlbumItem
+          v-for="(elemento, index) in albumFiltrati"
+          :key="index"
+          :info="elemento"
+          />
+      </div>
     </div>
     <Loader v-else />
   </div>
@@ -15,6 +18,7 @@
 import axios from "axios"
 import AlbumItem from "./AlbumItem.vue"
 import Loader from "./Loader.vue"
+import Cerca from "./Cerca.vue"
 
 export default {
   name: 'Albums',
@@ -22,11 +26,27 @@ export default {
         return {
             apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
             albumArray: [],
-            loading: true
+            loading: true,
+            nuovoinput:"",
         }
     },
-     created(){
-        this.getPersonaggi();
+    components: {
+      AlbumItem,
+      Loader,
+      Cerca
+    },
+    created(){
+      this.getPersonaggi();
+    },
+    computed: {
+      albumFiltrati(){
+        if(this.nuovoinput == ""){
+          return this.albumArray
+        }
+        return this.albumArray.filter( (info) => {
+          return info.genre.includes(this.nuovoinput)
+        });
+      }
     },
     methods: {
       getPersonaggi(){
@@ -41,15 +61,15 @@ export default {
               // handle error
               console.log(error);
           });
+      },
+      filtraalbum(album){
+        this.nuovoinput = album
+        console.log(this.nuovoinput)
       }
     },
   props: {
     
   },
-  components: {
-    AlbumItem,
-    Loader
-  }
 }
 </script>
 
